@@ -9,13 +9,21 @@ app = typer.Typer()
 console = Console()
 
 
+
 @app.command()
-def main() -> None:
-    """Console script for staticpin."""
-    console.print("Replace this message by putting your code into "
-               "staticpin.cli.main")
-    console.print("See Typer documentation at https://typer.tiangolo.com/")
-    utils.do_something_useful()
+def add(dep: str, version: str = ''):
+    """Add a dependency, if no version is specified pull the latest one"""
+    pass
+
+@app.command()
+def upgrade(dep: str, version: str = ''):
+    """Update a dependency, if no version is specified update to the latest one"""
+    pass
+
+@app.command()
+def remove(dep: str):
+    """Remove a dependency, if no version is specified pull the latest one"""
+    pass
 
 
 if __name__ == "__main__":
