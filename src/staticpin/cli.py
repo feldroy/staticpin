@@ -5,6 +5,8 @@ from pathlib import Path
 import typer
 from rich.console import Console
 
+from . import utils
+
 app = typer.Typer()
 console = Console()
 
@@ -16,7 +18,9 @@ def add(
     static_dir: Path = Path("static"),
 ):
     """Add a dependency."""
-    console.print(f"Adding {name}")
+    if version.strip() == "":
+        version = utils.fetch_latest_version(name)
+    console.print(f"Adding {name} @ {version}")
 
 
 @app.command()
@@ -26,13 +30,15 @@ def upgrade(
     static_dir: Path = Path("static"),
 ):
     """Update a dependency."""
-    pass
+    if version.strip() == "":
+        version = utils.fetch_latest_version(name)
+    console.print(f"Upgrading {name} to {version}")
 
 
 @app.command()
 def remove(name: str, static_dir: Path = Path("static")):
     """Remove a dependency."""
-    pass
+    console.print(f"Removing {name}")
 
 
 if __name__ == "__main__":

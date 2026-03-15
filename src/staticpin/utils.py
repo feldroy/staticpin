@@ -3,6 +3,14 @@ import pathlib
 import httpx
 
 
+def fetch_latest_version(name: str) -> str:
+    """Fetch the latest version number of a library from cdnjs."""
+    url = f"https://api.cdnjs.com/libraries/{name}?fields=version"
+    response = httpx.get(url)
+    response.raise_for_status()
+    return response.json()["version"]
+
+
 def fetch_by_version(name: str, version: str, static_dir: pathlib.Path):
     # Using cdnjs API
     url = f"https://api.cdnjs.com/libraries/{name}/{version}"
