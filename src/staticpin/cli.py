@@ -20,7 +20,9 @@ def add(
     """Add a dependency."""
     if version.strip() == "":
         version = utils.fetch_latest_version(name)
-    console.print(f"Adding {name} @ {version}")
+    utils.fetch_by_version(name, version, static_dir)
+    console.print(f"Added {name} @ {version}")
+
 
 
 @app.command()
