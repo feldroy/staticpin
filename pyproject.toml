@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "staticpin"
-version = "0.1.0"
+version = "0.2.0"
 description = "Pin frontend static dependencies for Python web projects"
 readme = "README.md"
 authors = [
@@ -54,6 +54,7 @@ homepage = "https://github.com/feldroy/staticpin"
 
 [project.scripts]
 staticpin = "staticpin.cli:app"
+sp = "staticpin.cli:app"
 
 [tool.ty]
 # All rules are enabled as "error" by default; no need to specify unless overriding.

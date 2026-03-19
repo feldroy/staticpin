@@ -35,12 +35,14 @@ def upgrade(
     if version.strip() == "":
         version = utils.fetch_latest_version(name)
     console.print(f"Upgrading {name} to {version}")
+    console.print('[red bold]NOT YET IMPLEMENTED[/red bold]')
 
 
 @app.command()
 def remove(name: str, static_dir: Path = Path("static")):
     """Remove a dependency."""
     console.print(f"Removing {name}")
+    console.print('[red bold]NOT YET IMPLEMENTED[/red bold]')
 
 
 if __name__ == "__main__":
